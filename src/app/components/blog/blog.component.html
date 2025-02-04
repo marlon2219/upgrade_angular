@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Listado de Posts</h2>
+    <input [(ngModel)]="searchText" (input)="searchPosts($event)" placeholder="Buscar por título">
+    
+    <select (change)="filterByCategory($event)">
+      <option value="">Todas las categorías</option>
+      @for (category of categories; track category.id) {
+        <option [value]="category.id">{{ category.titulo }}</option>
+      }
+    </select>
+   
+    <div class="row bg-secondary">
+      @for (post of posts; track post.id) {
+        @if(posts.length > 0) {
+          <div class="col-md-4">
+            <div class="card">
+              <img [src]="post.imagen" class="card-img-top">
+              <div class="card-body">
+                <h5>{{ post.titulo }}</h5>
+                <p>{{ post.texto }}</p>
+                <p>{{ post.categoria.titulo }}</p>
+  
+                <a [routerLink]="['/post', post.id]" class="btn btn-primary">Ver más</a>
+              </div>
+            </div>
+          </div>
+        }  
+        }@empty {
+         <p>no hay registros</p>
+        }
+       
+      
+    </div>
+  </div>
+  
+  

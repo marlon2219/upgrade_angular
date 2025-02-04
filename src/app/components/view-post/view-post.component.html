@@ -1,0 +1,10 @@
+<h1>vista de la publicacion</h1>
+<div class="container">
+  <div class="card">
+    <img [src]=" post?.imagen " class="card-img-top">
+    <div class="card-body">
+      <h5>{{ post?.titulo }}</h5>
+      <p>{{ post?.texto }}</p>
+      <p>{{ post?.categoria?.titulo }}</p>
+    </div>
+  </div>
