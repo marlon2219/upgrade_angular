@@ -1,12 +1,12 @@
 import { RouterModule, Routes } from '@angular/router';
-import { FormularioComponent } from './components/formulario/formulario.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { ViewPostComponent } from './components/view-post/view-post.component';
+import { FormularioComponent } from './pages/formulario/formulario.component';
+import { ViewPostComponent } from './pages/view-post/view-post.component';
 import { NgModule } from '@angular/core';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-{ path: '', pathMatch: 'full',component: BlogComponent },
-  { path: 'home', component: BlogComponent },
+{ path: '', pathMatch: 'full',component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'new', component: FormularioComponent },
   { path: 'post/:idpost', component: ViewPostComponent }
 ];

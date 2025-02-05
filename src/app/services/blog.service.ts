@@ -83,15 +83,11 @@ export class BlogService {
   // Agrega un nuevo post al array
   insertPost(post: IPost) {
     const postData = Object.assign({}, post, { id: this.generarNuevoId(this.posts) });
-
     this.posts.push(postData);
-    console.log('Post añadido correctamente');
-    console.log(this.posts);
   }
 
   // Obtiene un post por su ID
   getPostById(id: number): IPost | undefined {
-    console.log('entramos en getPostByIdeeeeee');
     return this.posts.find(post => post.id === id);
   }
 
@@ -106,10 +102,7 @@ export class BlogService {
   getPostsByCategory(catId: number): IPost[] {
     console.log("entramos en el serviciooo con el id "+catId);
     const posts = this.getAllPosts()
-    console.log(posts);
-    console.log("salimosss ");
     const p = posts.filter(post => post.categoria.id === catId);
-    console.log("numero de elementos encontrados : "+p.length);
     return posts.filter(post => post.categoria && post.categoria.id === catId);
   }
 

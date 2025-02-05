@@ -1,9 +1,23 @@
-<header class="p-3">
-  <button class="btn btn-success m-2" [routerLink]="['/']">Home</button>
-  <button class="btn btn-success m-2" [routerLink]="['/new']">Formulario</button>
-  <div>
-    <h1>contenido</h1>
+<header>
+  
+  <nav class="navbar navbar-expand-lg bg-body-success">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">UPGRADE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/new']">Formulario</a>
+        </li>
+      </ul>
+    </div>
   </div>
+</nav>
 </header>
 <div>
   <router-outlet></router-outlet>

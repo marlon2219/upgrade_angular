@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { BlogService } from '../../services/blog.service';
 import { IPost } from '../../interfaces/ipost';
 import { ActivatedRoute } from '@angular/router';
-import { BlogService } from '../../services/blog.service';
 
 @Component({
   selector: 'app-view-post',
@@ -10,7 +10,7 @@ import { BlogService } from '../../services/blog.service';
   styleUrl: './view-post.component.css'
 })
 export class ViewPostComponent {
-  blogService = inject(BlogService);
+blogService = inject(BlogService);
   post?: IPost;
 
   constructor(private route: ActivatedRoute) {}
@@ -26,3 +26,4 @@ export class ViewPostComponent {
 
  
 }
+

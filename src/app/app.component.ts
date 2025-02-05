@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { FormularioComponent } from "./components/formulario/formulario.component";
-import { BlogComponent } from "./components/blog/blog.component";
+import { FormularioComponent } from "./pages/formulario/formulario.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormularioComponent, BlogComponent,RouterLink],
+  imports: [RouterOutlet, FormularioComponent,RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

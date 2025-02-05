@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Listado de Posts</h2>
+  <div class="d-flex my-4">
+    <input class="form-control me-2 w-50 " [(ngModel)]="searchText" (input)="searchPosts($event)"
+      placeholder="Buscar por título">
+    <select class="btn btn-outline-success" (change)="filterByCategory($event)">
+      <option value="">Todas las categorías</option>
+      @for (category of categories; track category.id) {
+      <option [value]="category.id">{{ category.titulo }}</option>
+      }
+    </select>
+  </div>
+  
+    <app-post-card [posts]="posts"></app-post-card>
+  
+</div>
+
+
