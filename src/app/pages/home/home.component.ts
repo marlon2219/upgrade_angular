@@ -24,10 +24,12 @@ export class HomeComponent {
     this.categories = this.blogService.getAllCategories();
   }
 
+  //verificar y eliminar si no es neceario
   ngOnInit() {
     this.posts = this.blogService.getAllPosts();
     this.categories = this.blogService.getAllCategories();
   }
+  //----------------------------------------------
 
   filterByCategory(event: Event) {
     const target = event.target as HTMLInputElement;

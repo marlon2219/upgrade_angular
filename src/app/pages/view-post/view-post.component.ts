@@ -21,7 +21,6 @@ blogService = inject(BlogService);
   ngOnInit(): void {
     const  id = this.route.snapshot.paramMap.get('idpost') || '';
     this.viewPost(parseInt(id));
-    console.log('entramos en ngOnInitee agstinaaa: '+ this.post?.imagen);
   }
 
  

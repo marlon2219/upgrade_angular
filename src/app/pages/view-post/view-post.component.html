@@ -7,9 +7,11 @@
     <div class="card">
       <img [src]=" post?.imagen " class="card-img-top">
       <div class="card-body">
-        <h5>{{ post?.titulo }}</h5>
+        <h4>{{ post?.titulo }}</h4>
         <p>{{ post?.texto }}</p>
-        <p>{{ post?.categoria?.titulo }}</p>
+        <p>Autor: {{ post?.autor }}</p>
+        <p>Fecha de creación: {{ post?.fecha }}</p>
+        <p>Categoria: {{ post?.categoria?.titulo }}</p>
       </div>
     </div>
     </div>

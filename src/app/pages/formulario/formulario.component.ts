@@ -1,9 +1,7 @@
 
 import { Component, inject } from '@angular/core';
-import { IPost } from '../../interfaces/ipost';
-import { ICategory } from '../../interfaces/icategory';
 import { BlogService } from '../../services/blog.service';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -25,7 +23,8 @@ export class FormularioComponent {
         Validators.required
       ]),
       imagen: new FormControl("", [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^https:\/\/picsum\.photos\/400\/300$/)
       ]),
       categoria:new FormControl(null, [
         Validators.required
@@ -41,19 +40,14 @@ export class FormularioComponent {
   }
 
   setDataPost() {
-    //cuando tengo los datos del formulario, llamar al servicio, enviar los datos y gestionar la respuesta.
-     this.blogService.insertPost(this.postForm.value);
-    alert("muy bien");
+    this.blogService.insertPost(this.postForm.value);
+    alert("Post insertado correctamente");
     this.postForm.reset();
 
   }
-
-  submit() {
-    if (this.postForm.valid) {
-      console.log(this.postForm.value);
-      this.blogService.insertPost(this.postForm.value as IPost);
-     
-    }
+  //validacion
+  validate(campo:string){
+    return (this.postForm.get(campo)?.invalid && this.postForm.get(campo)?.touched);
   }
 }
 

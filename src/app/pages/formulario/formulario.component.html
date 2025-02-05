@@ -6,32 +6,24 @@
         <div class="mb-3">
             <label class="form-label" for="titulo">Título:</label>
             <input class="form-control" id="titulo" formControlName="titulo" type="text" />
-            
-            @if (postForm.get('title')?.invalid && postForm.get('title')?.touched) {
-              <div>El título es requerido.</div>
+           @if(validate('titulo')) {
+            <p class="text-danger">*este campo es obligatorio</p>
             }
-           
           </div>
-          
-      
           <div class="mb-3">
             <label class="form-label" for="texto">Texto:</label>
             <textarea class="form-control" id="texto" formControlName="texto"></textarea>
-            @if (postForm.get('texto')?.invalid && postForm.get('texto')?.touched) {
-              <div>El texto es requerido.</div>
-            }
+            @if(validate('texto')) {
+              <p class="text-danger">*este campo es obligatorio</p>
+              }
           </div>
-          
-      
           <div class="mb-3">
             <label class="form-label" for="imagen">Imagen (URL):</label>
             <input class="form-control" id="imagen" formControlName="imagen" type="text" />
-          
-            @if (postForm.get('imagen')?.invalid && postForm.get('imagen')?.touched) {
-              <div>La URL de la imagen es requerida y debe ser válida.</div>
-            }
+            @if(validate('imagen')) {
+              <p class="text-danger">*usa solo este enlace: https://picsum.photos/400/300</p>
+              }
           </div>
-          
         <div class="mb-3">
           <label class="form-label" for="categoria">Categoría:</label>
           <select class="form-control" class="form-control" id="categoria" formControlName="categoria">
@@ -41,29 +33,21 @@
               </option>
             }
           </select>
-          
-          @if (postForm.get('categoria')?.invalid && postForm.get('categoria')?.touched) {
-            <div>La categoría es requerida.</div>
-          }
-          
+          @if(validate('categoria')) {
+            <p class="text-danger">*este campo es obligatorio</p>
+            }
         </div>
-      
         <div class="mb-3">
           <label class="form-label" for="autor">Autor:</label>
           <input class="form-control" id="autor" formControlName="autor" type="text" />
-          @if (postForm.get('autor')?.invalid && postForm.get('autor')?.touched) {
-            <div>El autor es requerido.</div>
-          }
-          
+          @if(validate('autor')) {
+            <p class="text-danger">*este campo es obligatorio</p>
+            }
         </div>
-      
         <div class="mb-3">
           <label class="form-label" for="fecha">Fecha:</label>
           <input class="form-control" id="fecha" formControlName="fecha" type="date" />
-          
-          
         </div>
-      
         <button class="btn btn-primary" type="submit" [disabled]="postForm.invalid">Añadir</button>
       </form>
     </div>
